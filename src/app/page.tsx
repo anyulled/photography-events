@@ -1,112 +1,155 @@
-import Image from "next/image";
+"use client";
+import Banner from "../app/components/banner/Banner";
+import Link from "next/link";
+import OrangeTextButton from "@/app/components/Button/OrangeTextButton";
+
+type People = {
+  name: string;
+  instagram: string;
+  role: string;
+  imageUrl: string;
+  city: null | string;
+  country?: string;
+};
+
+const people: Array<People> = [
+  {
+    name: "Leslie Alexander",
+    instagram: "@leslie_alexander",
+    role: "Model",
+    imageUrl:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    city: "Barcelona",
+    country: "Spain 🇪🇸",
+  },
+  {
+    name: "Michael Foster",
+    instagram: "@michael_foster",
+    role: "Photographer",
+    imageUrl:
+      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    city: "Viena",
+    country: "Austria 🇦🇹",
+  },
+  {
+    name: "Dries Vincent",
+    instagram: "@driesvincent",
+    role: "Organizer",
+    imageUrl:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    city: "Valencia",
+    country: "Spain 🇪🇸",
+  },
+  {
+    name: "Lindsay Walton",
+    instagram: "@lindsay_walton",
+    role: "Model",
+    imageUrl:
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    city: "Lyon",
+    country: "France 🇫🇷",
+  },
+  {
+    name: "Courtney Henry",
+    instagram: "@courtney_henry",
+    role: "Model",
+    imageUrl:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    city: "Madrid",
+    country: "Spain 🇪🇸",
+  },
+  {
+    name: "Tom Cook",
+    instagram: "@tom_cook",
+    role: "Organizer",
+    imageUrl:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    city: "Iceland",
+    country: "Iceland 🇮🇸",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-orange-500 to-yellow-500 py-20">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Welcome to our website
+            </h1>
+            <p className="text-lg text-white mb-8">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              euismod justo ac massa malesuada, vel bibendum velit bibendum.
+            </p>
+            <OrangeTextButton text="Register" url={""} />
+          </div>
         </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className="container mx-auto py-12">
+          <Banner />
+          <div className="flex">
+            <div id={"Column 1"} className="bg-gray-200 p-8 rounded-lg w-1/3">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Updates</h2>
+              <ul className="divide-y divide-gray-100">
+                {people.map((person) => (
+                  <li
+                    key={person.instagram}
+                    className="flex justify-between gap-x-6 py-5"
+                  >
+                    <div className="flex min-w-0 gap-x-4">
+                      <img
+                        alt=""
+                        src={person.imageUrl}
+                        className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                      />
+                      <div className="min-w-0 flex-auto">
+                        <p className="text-sm font-semibold leading-6 text-gray-900">
+                          <Link
+                            href={`/${person.role.toLocaleLowerCase()}/${person.instagram}`}
+                          >
+                            {person.name}
+                          </Link>
+                        </p>
+                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                          <Link
+                            href={`/${person.role.toLocaleLowerCase()}/${person.instagram}`}
+                          >
+                            {person.instagram}
+                          </Link>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                      <p className="text-sm leading-6 text-gray-900">
+                        {person.role}
+                      </p>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+                      <p className="mt-1 text-xs leading-5 text-gray-500">
+                        <span>
+                          {person.city}, {person.country}
+                        </span>
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div
+              id={"Column 2"}
+              className="bg-gray-200 p-8 rounded-lg w-2/3 px-8"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Column 2
+              </h2>{" "}
+              Calendar goes here
+              {/*<Calendar startAccesor="start"
+                                              endAccessor="end"
+                                              localizer={localizer}
+                                              style={{height: 800}}/>*/}
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

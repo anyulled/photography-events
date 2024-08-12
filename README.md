@@ -34,3 +34,44 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Event registration process
+
+```plantuml
+@startuml
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam arrowColor Black
+skinparam actorBorderColor Black
+skinparam activityBackgroundColor #FFDDDD
+skinparam activityBorderColor Black
+skinparam decisionBorderColor Black
+skinparam decisionBackgroundColor #FFDDDD
+skinparam endColor #FFAAAA
+
+|#Rose|
+
+start
+
+:Organizer creates event;
+
+:User registers for the event;
+
+:Registration status is pending;
+
+if (Approve registration?) then (yes)
+    :Organizer approves registration;
+    :Registration is approved;
+    :User pays registration fee;
+    :Registration is confirmed;
+else (no)
+    :Organizer rejects registration;
+    :Registration is rejected;
+endif
+
+stop
+
+@enduml
+
+```
