@@ -20,6 +20,8 @@ export default function EventList({ events }: Readonly<Props>) {
                   <Image
                     alt={callout.name}
                     src={callout.imageSrc}
+                    height={320}
+                    width={320}
                     className="h-full w-full object-cover object-center rounded"
                   />
                 </div>

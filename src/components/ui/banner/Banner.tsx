@@ -62,6 +62,8 @@ export default function Example() {
               <Image
                 alt={model.name}
                 src={model.profileUrl}
+                height={24}
+                width={24}
                 className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
               />
             </Link>

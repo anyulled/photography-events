@@ -9,6 +9,8 @@ export const PersonData = (props: { person: UserProfile }) => (
       <Image
         alt={props.person.name}
         src={props.person.profileUrl}
+        width={48}
+        height={48}
         className="h-12 w-12 flex-none rounded-full bg-gray-50"
       />
       <div className="min-w-0 flex-auto">
