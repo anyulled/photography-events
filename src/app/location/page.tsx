@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+import { title } from "@/components/constants";
+
+export const metadata: Metadata = {
+  title: title + " Location List",
+};
+
 export default function LocationList() {
   return (
     <>

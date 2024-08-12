@@ -1,4 +1,10 @@
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { Metadata } from "next";
+import { title } from "@/components/constants";
+
+export const metadata: Metadata = {
+  title: title + " Profile",
+};
 
 export default function ProfilePage() {
   return (

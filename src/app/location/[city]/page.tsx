@@ -4,11 +4,24 @@ import {
   generatePersonData,
 } from "@/components/data/generateData";
 import { PersonData } from "@/components/ui/personData";
+import type { Metadata } from "next";
+import { title } from "@/components/constants";
 
 const events = generateEvents(9);
 const photographers = generatePersonData(3, "Photographer");
 const models = generatePersonData(6, "Model");
 const organizers = generatePersonData(2, "Organizer");
+
+export type Props = {
+  params: { city: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => ({
+  title: `${title} ${params.city} - City`,
+});
 
 export default function LocationDetail({
   params,

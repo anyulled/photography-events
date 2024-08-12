@@ -1,9 +1,10 @@
 import { generatePersonData } from "@/components/data/generateData";
 import { PersonData } from "@/components/ui/personData";
 import { Metadata } from "next";
+import { title } from "@/components/constants";
 
 export const metadata: Metadata = {
-  title: "Model Events ↠ Organizer list",
+  title: title + " Organizer list",
 };
 
 export default function Models() {

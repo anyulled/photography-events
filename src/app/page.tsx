@@ -102,6 +102,8 @@ export default function Home() {
                       <Image
                         alt={person.name}
                         src={person.imageUrl}
+                        height={48}
+                        width={48}
                         className="h-12 w-12 flex-none rounded-full bg-gray-50"
                       />
                       <div className="min-w-0 flex-auto">

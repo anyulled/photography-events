@@ -1,3 +1,17 @@
+import { Metadata } from "next";
+import { title } from "@/components/constants";
+
+export type Props = {
+  params: { username: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => ({
+  title: `${title} ${params.username.replaceAll("-", " ")} - Photographer`,
+});
+
 export default function PhotographerDetail({
   params,
 }: Readonly<{
