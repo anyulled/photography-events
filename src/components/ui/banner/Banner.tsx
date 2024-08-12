@@ -53,8 +53,8 @@ export default function Example() {
           >
             <circle r={1} cx={1} cy={1} />
           </svg>
-          {bannerInfo.dateStart.toISOString()} -{" "}
-          {bannerInfo.dateEnd.toISOString()}, {bannerInfo.city}.
+          {bannerInfo.dateStart.toISOString().split("T")[0]} -{" "}
+          {bannerInfo.dateEnd.toISOString().split("T")[0]}, {bannerInfo.city}.
         </p>
         <div id="participant-list" className="flex -space-x-1 overflow-hidden">
           {bannerInfo.models.map((model) => (
