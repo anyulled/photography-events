@@ -12,3 +12,21 @@ export const navigation: Array<Navigation> = [
   { name: "Locations", href: "/location", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
+
+export const profileNavigation: Array<Navigation> = [
+  {
+    name: "Your Profile",
+    href: "/profile",
+    current: false,
+  },
+  {
+    name: "Settings",
+    href: "/settings",
+    current: false,
+  },
+  {
+    name: "Logout",
+    href: "/logout",
+    current: false,
+  },
+];
