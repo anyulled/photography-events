@@ -2,6 +2,7 @@
 import Banner from "@/components/ui/banner/Banner";
 import Link from "next/link";
 import OrangeTextButton from "@/components/ui/Button/OrangeTextButton";
+import Image from "next/image";
 
 type People = {
   name: string;
@@ -98,8 +99,8 @@ export default function Home() {
                     className="flex justify-between gap-x-6 py-5"
                   >
                     <div className="flex min-w-0 gap-x-4">
-                      <img
-                        alt=""
+                      <Image
+                        alt={person.name}
                         src={person.imageUrl}
                         className="h-12 w-12 flex-none rounded-full bg-gray-50"
                       />

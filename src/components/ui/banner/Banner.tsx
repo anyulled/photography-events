@@ -1,5 +1,20 @@
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import Image from "next/image";
+import { faker } from "@faker-js/faker";
+import { generatePersonData } from "@/components/data/generateData";
+
+const bannerInfo = {
+  organizer: {
+    username: "dan-hecho",
+  },
+  title: "Dan Hecho Workshop",
+  slug: "dan-hecho-madrid-2024",
+  city: "Madrid",
+  dateStart: faker.date.soon(),
+  dateEnd: faker.date.soon({ days: 3 }),
+  models: generatePersonData(5, "Model"),
+};
 
 export default function Example() {
   return (
@@ -30,7 +45,7 @@ export default function Example() {
       </div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         <p className="text-sm leading-6 text-gray-900">
-          <strong className="font-semibold">Dan Hecho Workshop</strong>
+          <strong className="font-semibold">{bannerInfo.title}</strong>
           <svg
             viewBox="0 0 2 2"
             aria-hidden="true"
@@ -38,32 +53,22 @@ export default function Example() {
           >
             <circle r={1} cx={1} cy={1} />
           </svg>
-          4-6 September, Madrid.
+          {bannerInfo.dateStart.toISOString()} -{" "}
+          {bannerInfo.dateEnd.toISOString()}, {bannerInfo.city}.
         </p>
         <div id="participant-list" className="flex -space-x-1 overflow-hidden">
-          <img
-            alt="Dan Hecho"
-            src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
-          />
-          <img
-            alt="Shira Nuballet"
-            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
-          />
-          <img
-            alt="Sadie Gray"
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-            className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
-          />
-          <img
-            alt="Montse Roura"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
-          />
+          {bannerInfo.models.map((model) => (
+            <Link key={model.id} href={`/model/${model.username}`}>
+              <Image
+                alt={model.name}
+                src={model.profileUrl}
+                className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+              />
+            </Link>
+          ))}
         </div>
         <Link
-          href={"/organizer/dan-hecho/dan-hecho-madrid-2024"}
+          href={`/organizer/${bannerInfo.organizer.username}/${bannerInfo.slug}`}
           className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
         >
           Register now <span aria-hidden="true">&rarr;</span>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Event } from "@/components/data/generateData";
+import Image from "next/image";
 
 interface Props {
   events: Readonly<Array<Event>>;
@@ -16,7 +17,7 @@ export default function EventList({ events }: Readonly<Props>) {
             {events.map((callout) => (
               <div key={callout.id} className="group relative">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                  <img
+                  <Image
                     alt={callout.name}
                     src={callout.imageSrc}
                     className="h-full w-full object-cover object-center rounded"

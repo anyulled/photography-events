@@ -8,6 +8,7 @@ import {
   generatePersonData,
 } from "@/components/data/generateData";
 import OrangeBgButton from "@/components/ui/Button/OrangeBgButton";
+import Image from "next/image";
 
 type Props = {
   params: { slug: string };
@@ -70,7 +71,7 @@ export default function EventDetails({
         <div className="flex -space-x-3 overflow-hidden text-center">
           {models.map((model) => (
             <Link href={`/model/${model.username}`} key={model.id}>
-              <img
+              <Image
                 alt={model.name}
                 src={model.profileUrl}
                 className="inline-block h-48 w-48 rounded-full ring-2 ring-white"
@@ -132,7 +133,7 @@ export default function EventDetails({
           Location
         </h2>
         <div className="flex gap-x-4 sm:flex-col md:flex-row">
-          <img
+          <Image
             src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}&zoom=8&size=650x300&maptype=roadmap&key=${YOUR_API_KEY}`}
             alt={params.slug}
           />
@@ -167,8 +168,8 @@ export default function EventDetails({
               <li key={person.name}>
                 <div className="flex items-center gap-x-6">
                   <Link href={`/organizer/${person.username}`}>
-                    <img
-                      alt=""
+                    <Image
+                      alt={person.name}
                       src={person.profileUrl}
                       className="h-16 w-16 rounded-full"
                     />

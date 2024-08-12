@@ -1,11 +1,12 @@
 import { UserProfile } from "@/components/data/generateData";
 import Link from "next/link";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import Image from "next/image";
 
 export const PersonData = (props: { person: UserProfile }) => (
   <li className="flex justify-between gap-x-6 py-5">
     <div className="flex min-w-0 gap-x-4">
-      <img
+      <Image
         alt={props.person.name}
         src={props.person.profileUrl}
         className="h-12 w-12 flex-none rounded-full bg-gray-50"
