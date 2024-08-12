@@ -18,8 +18,8 @@ import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import {
   generateAvailability,
   generateEvents,
-} from "@/app/components/data/generateData";
-import EventList from "@/app/components/EventList";
+} from "@/components/data/generateData";
+import EventList from "@/components/ui/EventList";
 import Link from "next/link";
 
 const availability = generateAvailability(3);

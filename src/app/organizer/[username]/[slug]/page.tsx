@@ -6,8 +6,8 @@ import {
   EventDay,
   generateEventData,
   generatePersonData,
-} from "@/app/components/data/generateData";
-import OrangeBgButton from "@/app/components/Button/OrangeBgButton";
+} from "@/components/data/generateData";
+import OrangeBgButton from "@/components/ui/Button/OrangeBgButton";
 
 type Props = {
   params: { slug: string };

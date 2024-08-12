@@ -1,7 +1,7 @@
-import { generatePersonData } from "@/app/components/data/generateData";
-import { PersonData } from "@/app/components/personData";
+import { generatePersonData } from "@/components/data/generateData";
+import { PersonData } from "@/components/ui/personData";
 import { Metadata } from "next";
-import { title } from "@/app/components/constants";
+import { title } from "@/components/constants";
 
 export const metadata: Metadata = {
   title: `${title} Photographer list`,

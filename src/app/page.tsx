@@ -1,7 +1,7 @@
 "use client";
-import Banner from "../app/components/banner/Banner";
+import Banner from "@/components/ui/banner/Banner";
 import Link from "next/link";
-import OrangeTextButton from "@/app/components/Button/OrangeTextButton";
+import OrangeTextButton from "@/components/ui/Button/OrangeTextButton";
 
 type People = {
   name: string;

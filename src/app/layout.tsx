@@ -13,7 +13,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { navigation } from "@/app/components/constants";
+import { navigation } from "@/components/constants";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });

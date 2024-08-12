@@ -1,9 +1,9 @@
-import EventList from "@/app/components/EventList";
+import EventList from "@/components/ui/EventList";
 import {
   generateEvents,
   generatePersonData,
-} from "@/app/components/data/generateData";
-import { PersonData } from "@/app/components/personData";
+} from "@/components/data/generateData";
+import { PersonData } from "@/components/ui/personData";
 
 const events = generateEvents(9);
 const photographers = generatePersonData(3, "Photographer");

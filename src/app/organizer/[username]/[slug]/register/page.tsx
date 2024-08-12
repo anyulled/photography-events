@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import OrangeBgButton from "@/app/components/Button/OrangeBgButton";
+import OrangeBgButton from "@/components/ui/Button/OrangeBgButton";
 
 const event = {
   name: faker.lorem.sentence(),

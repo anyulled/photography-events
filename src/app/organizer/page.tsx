@@ -1,5 +1,5 @@
-import { generatePersonData } from "@/app/components/data/generateData";
-import { PersonData } from "@/app/components/personData";
+import { generatePersonData } from "@/components/data/generateData";
+import { PersonData } from "@/components/ui/personData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

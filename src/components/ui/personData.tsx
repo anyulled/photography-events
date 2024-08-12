@@ -1,4 +1,4 @@
-import { UserProfile } from "@/app/components/data/generateData";
+import { UserProfile } from "@/components/data/generateData";
 import Link from "next/link";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Event } from "@/app/components/data/generateData";
+import { Event } from "@/components/data/generateData";
 
 interface Props {
   events: Readonly<Array<Event>>;
