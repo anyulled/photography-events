@@ -1,4 +1,4 @@
-import EventList from "@/components/ui/EventList";
+import EventList from "@/components/ui/eventList";
 import {
   generateEvents,
   generatePersonData,

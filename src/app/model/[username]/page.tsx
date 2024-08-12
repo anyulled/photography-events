@@ -19,7 +19,7 @@ import {
   generateAvailability,
   generateEvents,
 } from "@/components/data/generateData";
-import EventList from "@/components/ui/EventList";
+import EventList from "@/components/ui/eventList";
 import Link from "next/link";
 
 const availability = generateAvailability(3);
