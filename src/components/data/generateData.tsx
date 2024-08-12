@@ -5,6 +5,7 @@ export interface UserProfile {
   name: string;
   username: string;
   profileUrl: string;
+  email: string;
   date: Date;
   role: string;
   city: string;
@@ -60,6 +61,7 @@ export const generatePersonData = (
     username: faker.internet.userName(),
     profileUrl: faker.image.avatar(),
     date: faker.date.soon(),
+    email: faker.internet.email(),
     role:
       role ??
       faker.string.fromCharacters(["Model", "Photographer", "Organizer"]),
