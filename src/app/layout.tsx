@@ -17,6 +17,7 @@ import { navigation, profileNavigation, title } from "@/components/constants";
 import Link from "next/link";
 import { Footer } from "@/components/ui/footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -157,6 +158,7 @@ export default function RootLayout({
           <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             {children}
             <SpeedInsights />
+            <Analytics />
           </main>
         </div>
         <Footer />
