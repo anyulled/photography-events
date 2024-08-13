@@ -46,7 +46,9 @@ export default function LocationDetail({
       >
         <div id="column1" className="h-max col-span-3">
           <section>
-            <h2>Models</h2>
+            <h2 className="text-lg font-bold tracking-tight text-teal-900 sm:text-lg">
+              Models
+            </h2>
             <ul className="divide-y divide-gray-100">
               {models.map((model) => (
                 <PersonData key={model.id} person={model} />
@@ -54,7 +56,9 @@ export default function LocationDetail({
             </ul>
           </section>
           <section>
-            <h2>Photographers</h2>
+            <h2 className="text-lg font-bold tracking-tight text-teal-900 sm:text-lg">
+              Photographers
+            </h2>
             <ul className="divide-y divide-gray-100">
               {photographers.map((photographer) => (
                 <PersonData key={photographer.id} person={photographer} />
@@ -62,7 +66,9 @@ export default function LocationDetail({
             </ul>
           </section>
           <section>
-            <h2>Organizers</h2>
+            <h2 className="text-lg font-bold tracking-tight text-teal-900 sm:text-lg">
+              Organizers
+            </h2>
             <ul className="divide-y divide-gray-100">
               {organizers.map((organizer) => (
                 <PersonData key={organizer.id} person={organizer} />
@@ -71,8 +77,7 @@ export default function LocationDetail({
           </section>
         </div>
         <div id="column2" className="h-max col-span-9">
-          <section>
-            <h2>Events</h2>
+          <section id="event-list">
             <EventList events={events} />
           </section>
         </div>
