@@ -19,6 +19,7 @@ export const profileNavigation: Array<Navigation> = [
     href: "/profile",
     current: false,
   },
+  { name: "My Events", href: "/profile/my-events", current: false },
   {
     name: "Settings",
     href: "/settings",
