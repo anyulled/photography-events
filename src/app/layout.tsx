@@ -15,6 +15,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { navigation, profileNavigation, title } from "@/components/constants";
 import Link from "next/link";
+import { Footer } from "@/components/ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,8 +35,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full bg-gray-100">
-      <body className={`${inter.className} h-full`}>
-        <Disclosure as="nav" className="bg-gray-800">
+      <body className={`${inter.className} h-max`}>
+        <Disclosure as="nav" className="bg-teal-800">
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -55,13 +56,15 @@ export default function RootLayout({
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Image
-                    src={"/logo.webp"}
-                    alt={"model events"}
-                    className="h-8 w-auto"
-                    width={32}
-                    height={32}
-                  />
+                  <Link href={"/"}>
+                    <Image
+                      src={"/logo.webp"}
+                      alt={"model events"}
+                      className="h-8 w-auto"
+                      width={32}
+                      height={32}
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -154,11 +157,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
-        <footer className="bg-gray-800 text-white py-4">
-          <div className="container mx-auto text-center">
-            <p>&copy; 2024 Model Events. All Rights Reserved.</p>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
