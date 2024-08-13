@@ -3,13 +3,10 @@ import Link from "next/link";
 import { EnvelopeIcon, UserIcon } from "@heroicons/react/24/solid";
 import { Label, Radio, RadioGroup } from "@headlessui/react";
 import { UserProfile } from "@/components/data/generateData";
-import { useState } from "react"; /* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
+import { classNames } from "@/components/constants"; /* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const statusOptions = [
   {
