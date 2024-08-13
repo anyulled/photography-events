@@ -1,16 +1,14 @@
 import { UserProfile } from "@/components/data/generateData";
 import Link from "next/link";
-import getUnicodeFlagIcon from "country-flag-icons/unicode";
-import Image from "next/image";
+import getUnicodeFlagIcon from "country-flag-icons/unicode"; // eslint-disable @next/next/no-img-element:0
+/* eslint-disable @next/next/no-img-element */
 
 export const PersonData = (props: { person: UserProfile }) => (
   <li className="flex justify-between gap-x-6 py-5">
     <div className="flex min-w-0 gap-x-4">
-      <Image
+      <img
         alt={props.person.name}
         src={props.person.profileUrl}
-        width={48}
-        height={48}
         className="h-12 w-12 flex-none rounded-full bg-gray-50"
       />
       <div className="min-w-0 flex-auto">

@@ -2,7 +2,8 @@
 import Banner from "@/components/ui/banner/Banner";
 import Link from "next/link";
 import OrangeTextButton from "@/components/ui/Button/OrangeTextButton";
-import Image from "next/image";
+
+/* eslint-disable @next/next/no-img-element */
 
 type People = {
   name: string;
@@ -99,7 +100,7 @@ export default function Home() {
                     className="flex justify-between gap-x-6 py-5"
                   >
                     <div className="flex min-w-0 gap-x-4">
-                      <Image
+                      <img
                         alt={person.name}
                         src={person.imageUrl}
                         height={48}
