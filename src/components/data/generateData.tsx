@@ -47,6 +47,8 @@ export interface Event {
   date: string;
   href: string;
   name: string;
+  slug: string;
+  organizer: string[];
   imageSrc: string;
   description: string;
 }
@@ -106,7 +108,9 @@ export const generateEvents = (num: number): Array<Event> =>
     datetime: faker.date.recent().toISOString(),
     date: faker.date.recent().toLocaleDateString(),
     name: faker.lorem.sentence(),
+    slug: faker.lorem.slug(),
     href: faker.internet.url(),
+    organizer: [faker.internet.userName()],
     imageSrc: faker.image.urlLoremFlickr({ category: "model" }),
     description: faker.lorem.sentence(),
   }));

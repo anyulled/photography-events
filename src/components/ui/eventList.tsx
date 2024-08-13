@@ -26,7 +26,9 @@ export default function EventList({ events }: Readonly<Props>) {
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-orange-400">
-                  <a href={callout.href}>
+                  <a
+                    href={`/organizer/${callout.organizer[0]}/${callout.slug}`}
+                  >
                     <span className="absolute inset-0" />
                     {callout.name}
                   </a>
