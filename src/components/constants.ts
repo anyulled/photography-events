@@ -31,3 +31,6 @@ export const profileNavigation: Array<Navigation> = [
     current: false,
   },
 ];
+
+export const classNames = (...classes: any[]) =>
+  classes.filter(Boolean).join(" ");
