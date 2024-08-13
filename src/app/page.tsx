@@ -2,6 +2,7 @@
 import Banner from "@/components/ui/banner/Banner";
 import Link from "next/link";
 import OrangeTextButton from "@/components/ui/Button/OrangeTextButton";
+import EventCalendar from "@/components/ui/EventCalendar";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -78,7 +79,7 @@ export default function Home() {
         <div className="bg-gradient-to-r from-orange-500 to-yellow-500 py-20">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl font-bold text-white mb-4">
-              Welcome to our website
+              📸 Photography Events
             </h1>
             <p className="text-lg text-white mb-8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -88,11 +89,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container mx-auto py-12">
+        <div>
           <Banner />
           <div className="flex">
-            <div id={"Column 1"} className="bg-gray-200 p-8 rounded-lg w-1/3">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Updates</h2>
+            <div
+              id="Column 1"
+              className="bg-teal-600 px-4 py-3 rounded-lg w-1/3"
+            >
+              <h2 className="text-2xl font-bold text-teal-500 mb-2">Updates</h2>
               <ul className="divide-y divide-gray-100">
                 {people.map((person) => (
                   <li
@@ -108,14 +112,14 @@ export default function Home() {
                         className="h-12 w-12 flex-none rounded-full bg-gray-50"
                       />
                       <div className="min-w-0 flex-auto">
-                        <p className="text-sm font-semibold leading-6 text-gray-900">
+                        <p className="text-sm font-semibold leading-6 text-teal-900">
                           <Link
                             href={`/${person.role.toLocaleLowerCase()}/${person.instagram}`}
                           >
                             {person.name}
                           </Link>
                         </p>
-                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                        <p className="mt-1 truncate text-xs leading-5 text-teal-400">
                           <Link
                             href={`/${person.role.toLocaleLowerCase()}/${person.instagram}`}
                           >
@@ -125,11 +129,11 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                      <p className="text-sm leading-6 text-gray-900">
+                      <p className="text-sm leading-6 text-gray-700">
                         {person.role}
                       </p>
 
-                      <p className="mt-1 text-xs leading-5 text-gray-500">
+                      <p className="mt-1 text-xs leading-5 text-teal-400">
                         <span>
                           {person.city}, {person.country}
                         </span>
@@ -140,17 +144,10 @@ export default function Home() {
               </ul>
             </div>
             <div
-              id={"Column 2"}
-              className="bg-gray-200 p-8 rounded-lg w-2/3 px-8"
+              id="Column 2"
+              className="bg-gray-200 pr-1 pl-2 pt-2 pb-2  rounded-lg w-2/3 px-8"
             >
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Column 2
-              </h2>{" "}
-              Calendar goes here
-              {/*<Calendar startAccesor="start"
-                                              endAccessor="end"
-                                              localizer={localizer}
-                                              style={{height: 800}}/>*/}
+              <EventCalendar />
             </div>
           </div>
         </div>
