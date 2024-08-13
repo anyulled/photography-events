@@ -22,7 +22,7 @@ export interface EventDay {
   description: string;
   href: string;
   category: {
-    title: string;
+    weekday: string;
     href: string;
   };
   author: {
@@ -80,7 +80,7 @@ export const generateEventData = (num: number = 10): Array<EventDay> =>
     description: faker.lorem.paragraphs(2),
     href: faker.internet.url(),
     category: {
-      title: faker.date.weekday(),
+      weekday: faker.date.weekday(),
       href: faker.internet.url(),
     },
     author: {
