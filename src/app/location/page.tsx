@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const products = Array.from({ length: 12 }, () => {
   return {
-    id: faker.string.uuid(),
-    country: faker.location.country(),
     city: faker.location.city(),
+    country: faker.location.country(),
+    id: faker.string.uuid(),
     imageSrc() {
       return faker.image.urlLoremFlickr({
         category: this.country.toLowerCase().replaceAll(" ", "-"),

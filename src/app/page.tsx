@@ -1,11 +1,25 @@
 "use client";
 import Banner from "@/components/ui/banner/Banner";
-import EventCalendar from "@/components/ui/EventCalendar";
+import EventCalendar, { PersonEvent } from "@/components/ui/EventCalendar";
 import { HeroComponent } from "@/app/heroComponent";
 import { UpdatesFeed } from "@/components/updatesFeed";
-import { generateUpdateFeed } from "@/components/data/generateData"; /* eslint-disable @next/next/no-img-element */
+import { generateUpdateFeed } from "@/components/data/generateData";
+import { faker } from "@faker-js/faker"; /* eslint-disable @next/next/no-img-element */
 
 export default function Home() {
+  const events: Array<PersonEvent> = [
+    {
+      id: faker.string.uuid(),
+      title: "Sadie Gray",
+      city: "Barcelona",
+      country: "ES",
+      href: `/`,
+      startDate: 18,
+      endDate: 24,
+      type: "Model",
+    },
+  ];
+
   return (
     <main>
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -18,7 +32,7 @@ export default function Home() {
               id="Column 2"
               className="bg-gray-200 pr-1 pl-2 pt-2 pb-2  rounded-lg w-2/3 px-8"
             >
-              <EventCalendar />
+              <EventCalendar events={events} />
             </div>
           </div>
         </div>

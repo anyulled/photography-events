@@ -37,8 +37,10 @@ export interface Availability {
   id: string;
   city: string;
   country: string;
-  dateFrom: Date;
-  dateUntil: Date;
+
+  dateFrom(): Date;
+
+  dateUntil(): Date;
 }
 
 export interface Event {
@@ -100,8 +102,12 @@ export const generateAvailability = (num: number = 7): Array<Availability> =>
     id: faker.string.uuid(),
     city: faker.location.city(),
     country: faker.location.country(),
-    dateFrom: faker.date.soon(),
-    dateUntil: faker.date.soon({ days: 5 }),
+    dateFrom() {
+      return faker.date.soon({ days: faker.number.int({ min: 1, max: 25 }) });
+    },
+    dateUntil() {
+      return faker.date.soon({ days: 5, refDate: this.dateFrom() });
+    },
   }));
 
 export const generateEvents = (num: number): Array<Event> =>

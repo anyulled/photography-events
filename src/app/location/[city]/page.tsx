@@ -30,22 +30,22 @@ export default function LocationDetail({
 }>) {
   return (
     <>
-      <div className="bg-teal-200 rounded">
+      <div className="bg-gradient-to-r from-orange-500 to-yellow-500 rounded">
         <div className="container mx-auto py-16">
-          <h1 className="text-4xl text-center font-bold text-teal-800">
+          <h1 className="text-4xl text-center font-bold text-white">
             {params.city.toUpperCase()}
           </h1>
-          <p className="text-center text-teal-600 mt-4">
+          <p className="text-center text-white mt-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
       </div>
       <div
         id="content"
-        className="mx-auto max-w-2xl px-2 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:grid-rows-[auto,auto,1fr] lg:gap-x-4 lg:px-6 lg:pb-24 lg:pt-16"
+        className="px-1 pb-4 pt-4 sm:px-6 lg:grid  lg:grid-cols-12 lg:grid-rows-[auto,auto,1fr] lg:gap-x-4 lg:px-1 lg:pb-4 lg:pt-8"
       >
         <div id="column1" className="h-max col-span-3">
-          <section>
+          <section className="bg-gray-100 rounded">
             <h2 className="text-lg font-bold tracking-tight text-teal-900 sm:text-lg">
               Models
             </h2>
@@ -77,9 +77,7 @@ export default function LocationDetail({
           </section>
         </div>
         <div id="column2" className="h-max col-span-9">
-          <section id="event-list">
-            <EventList events={events} />
-          </section>
+          <EventList events={events} />
         </div>
       </div>
     </>

@@ -1,11 +1,24 @@
 import React from "react";
 import NavigationControl from "@/components/ui/NavigationControl";
 import { classNames } from "@/components/constants";
-import getUnicodeFlagIcon from "country-flag-icons/unicode";
-import Link from "next/link";
 import { CalendarEvent } from "@/components/ui/CalendarEvent";
 
-const Calendar: React.FC = () => {
+export interface PersonEvent {
+  id: string;
+  href: string;
+  country: string;
+  city: string;
+  title: string;
+  startDate: number;
+  endDate: number;
+  type: "Model" | "Photographer" | "Organizer";
+}
+
+interface Props {
+  events: Array<PersonEvent>;
+}
+
+const Calendar: React.FC<Props> = ({ events }) => {
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
@@ -47,53 +60,14 @@ const Calendar: React.FC = () => {
                 {/* Example logic to render day numbers */}
               </span>
               {/* Example events */}
-              {index === 4 && (
-                <>
-                  <CalendarEvent
-                    href={`/organizer/sadie-gray/august-spain-tour-2024`}
-                    country="ES"
-                    city="Barcelona"
-                    title="Sadie Gray"
-                  />
-                  <div className="mt-2">
-                    <div className="text-gray-700 text-xs">
-                      <Link
-                        href={`/organizer/anna-sweet/august-spain-tour-2024`}
-                      >
-                        Ana Sweet
-                      </Link>
-                    </div>
-                    <div className="text-gray-700 text-xs">
-                      {getUnicodeFlagIcon("US")} Madrid
-                    </div>
-                  </div>
-                </>
-              )}
-              {index === 5 && (
-                <div className="mt-2">
-                  <div className="text-gray-700 text-xs">
-                    <Link href={`/organizer/inn-events/croatia-2024`}>
-                      INN Events
-                    </Link>
-                  </div>
-                  <div className="text-gray-700 text-xs">
-                    {getUnicodeFlagIcon("CR")} Croatia
-                  </div>
-                </div>
-              )}
-
-              {index >= 23 && index <= 25 && (
-                <div className="mt-2">
-                  <div className="text-gray-700 text-xs">
-                    <Link href={`/organizer/shoot-party/france-2024`}>
-                      Shoot party
-                    </Link>
-                  </div>
-                  <div className="text-gray-700 text-xs">
-                    {getUnicodeFlagIcon("FR")} France
-                  </div>
-                </div>
-              )}
+              {events
+                .filter(
+                  (event) =>
+                    event.startDate <= index - 2 && event.endDate >= index - 2,
+                )
+                .map((event) => (
+                  <CalendarEvent event={event} key={event.id} />
+                ))}
             </div>
           ))}
         </div>
