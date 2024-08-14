@@ -3,6 +3,7 @@ import NavigationControl from "@/components/ui/NavigationControl";
 import { classNames } from "@/components/constants";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 import Link from "next/link";
+import { CalendarEvent } from "@/components/ui/CalendarEvent";
 
 const Calendar: React.FC = () => {
   const formattedDate = new Intl.DateTimeFormat("en-US", {
@@ -48,18 +49,12 @@ const Calendar: React.FC = () => {
               {/* Example events */}
               {index === 4 && (
                 <>
-                  <div className="mt-2">
-                    <div className="text-gray-700 text-xs">
-                      <Link
-                        href={`/organizer/sadie-gray/august-spain-tour-2024`}
-                      >
-                        Sadie Gray
-                      </Link>
-                    </div>
-                    <div className="text-gray-700 text-xs">
-                      {getUnicodeFlagIcon("ES")} Barcelona
-                    </div>
-                  </div>
+                  <CalendarEvent
+                    href={`/organizer/sadie-gray/august-spain-tour-2024`}
+                    country="ES"
+                    city="Barcelona"
+                    title="Sadie Gray"
+                  />
                   <div className="mt-2">
                     <div className="text-gray-700 text-xs">
                       <Link
@@ -108,10 +103,3 @@ const Calendar: React.FC = () => {
 };
 
 export default Calendar;
-/*{index === 11 && (
-    <div className="bg-purple-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
-      12
-    </div>
-)}
-className="text-xs text-gray-500 absolute top-1 left-1"
-*/

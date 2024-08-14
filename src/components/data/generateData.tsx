@@ -53,9 +53,11 @@ export interface Event {
   description: string;
 }
 
+type PersonRole = "Model" | "Organizer" | "Photographer";
+
 export const generatePersonData = (
   num: number = 10,
-  role: "Model" | "Organizer" | "Photographer" | "" = "",
+  role: PersonRole | "",
 ): Array<UserProfile> =>
   Array.from({ length: num }, () => ({
     id: faker.string.uuid(),
@@ -113,4 +115,35 @@ export const generateEvents = (num: number): Array<Event> =>
     organizer: [faker.internet.userName()],
     imageSrc: faker.image.urlLoremFlickr({ category: "model" }),
     description: faker.lorem.sentence(),
+  }));
+export type Update = {
+  user: {
+    name: string;
+    instagram: string;
+    role: string;
+  };
+  type: string;
+  imageUrl: string;
+  city: null | string;
+  country: string;
+  dateStart: string;
+  dateEnd: string;
+};
+export const generateUpdateFeed = (num: number = 6): Array<Update> =>
+  Array.from({ length: num }, () => ({
+    user: {
+      role: faker.string.fromCharacters(["Model", "Photographer", "Organizer"]),
+      name: `${faker.person.firstName()} ${faker.person.lastName()}`,
+      instagram: faker.internet.userName(),
+    },
+    type: faker.string.fromCharacters([
+      "Model Availability",
+      "Photographer Availability",
+      "Organizer Event",
+    ]),
+    imageUrl: faker.image.avatar(),
+    city: faker.location.city(),
+    country: faker.location.country(),
+    dateEnd: faker.date.recent({ days: 2 }).toISOString().split("T")[0],
+    dateStart: faker.date.recent().toISOString().split("T")[0],
   }));
