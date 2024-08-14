@@ -1,4 +1,4 @@
-export const title = "Model Events ↠";
+export const title = "Photography Events ↠";
 type Navigation = {
   name: string;
   href: string;
