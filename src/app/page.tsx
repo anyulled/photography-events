@@ -13,7 +13,7 @@ export default function Home() {
       title: "Sadie Gray",
       city: "Barcelona",
       country: "ES",
-      href: `/`,
+      href: `/organizer/sadiegray/spain-tour-2024`,
       startDate: 18,
       endDate: 24,
       type: "Model",
