@@ -11,7 +11,7 @@ export function HeroComponent() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod
           justo ac massa malesuada, vel bibendum velit bibendum.
         </p>
-        <OrangeTextButton text="Register" url={""} />
+        <OrangeTextButton text="Register" url={"/register"} />
       </div>
     </div>
   );
