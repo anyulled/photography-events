@@ -1,6 +1,6 @@
-import { UserProfile } from "@/components/data/generateData";
 import Link from "next/link";
-import getUnicodeFlagIcon from "country-flag-icons/unicode"; // eslint-disable @next/next/no-img-element:0
+import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import { UserProfile } from "@/lib/types"; // eslint-disable @next/next/no-img-element:0
 /* eslint-disable @next/next/no-img-element */
 
 export const PersonData = (props: { person: UserProfile }) => (
