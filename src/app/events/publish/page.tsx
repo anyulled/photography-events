@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -443,11 +444,7 @@ export default function Component() {
               </h2>
               <div className="flex items-center space-x-2 max-w-md">
                 <MapPin className="w-5 h-5 text-teal-500" />
-                <Autocomplete
-                  onPlaceChanged={(place) =>
-                    setEventLocation(place.description)
-                  }
-                >
+                <Autocomplete>
                   <Input
                     placeholder="Enter city"
                     onChange={(event) => setEventLocation(event.target.value)}
