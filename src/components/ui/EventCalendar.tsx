@@ -2,17 +2,7 @@ import React from "react";
 import NavigationControl from "@/components/ui/NavigationControl";
 import { classNames } from "@/components/constants";
 import { CalendarEvent } from "@/components/ui/CalendarEvent";
-
-export interface PersonEvent {
-  id: string;
-  href: string;
-  country: string;
-  city: string;
-  title: string;
-  startDate: number;
-  endDate: number;
-  type: "Model" | "Photographer" | "Organizer";
-}
+import { PersonEvent } from "@/lib/types";
 
 interface Props {
   events: Array<PersonEvent>;

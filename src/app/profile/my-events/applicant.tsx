@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { EnvelopeIcon, UserIcon } from "@heroicons/react/24/solid";
 import { Label, Radio, RadioGroup } from "@headlessui/react";
-import { UserProfile } from "@/components/data/generateData";
 import { useState } from "react";
-import { classNames } from "@/components/constants"; /* eslint-disable @next/next/no-img-element */
+import { classNames } from "@/components/constants";
+import { ApplicantProfile } from "@/lib/types"; /* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -35,18 +35,14 @@ const statusOptions = [
   },
 ];
 
-export interface Applicant extends UserProfile {
-  status: "pending" | "accepted" | "rejected" | "confirmed";
-}
-
-export function Applicant(props: { person: Applicant }) {
+export function Applicant(props: { person: ApplicantProfile }) {
   const [selectedStatus, setSelectedStatus] = useState<string>(
     props.person.status,
   );
   return (
     <li className="flex justify-between gap-x-6 py-5">
       <div className="flex min-w-0 gap-x-4">
-        <Link href={`/photographer/${props.person.username}`}>
+        <Link href={`/photographers/${props.person.username}`}>
           <img
             alt={props.person.name}
             src={props.person.profileUrl}
@@ -55,7 +51,7 @@ export function Applicant(props: { person: Applicant }) {
         </Link>
         <div className="min-w-0 flex-auto">
           <p className="text-sm font-semibold leading-6 text-gray-900">
-            <Link href={`/photographer/${props.person.username}`}>
+            <Link href={`/photographers/${props.person.username}`}>
               {props.person.name}
             </Link>
           </p>
@@ -65,7 +61,7 @@ export function Applicant(props: { person: Applicant }) {
               <span className={"ml-1 mr-1"}>{props.person.email}</span>
             </a>
             <UserIcon className="w-5 h-5" />
-            <Link href={`/photographer/${props.person.username}`}>
+            <Link href={`/photographers/${props.person.username}`}>
               <span className={"ml-1 mr-1"}>{props.person.username}</span>
             </Link>
           </p>

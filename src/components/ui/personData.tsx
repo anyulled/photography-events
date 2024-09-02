@@ -34,7 +34,7 @@ export const PersonData = (props: { person: UserProfile }) => (
       <p className="mt-1 text-xs leading-5 text-gray-500">
         <span>
           <Link
-            href={`/location/${props.person.city.replaceAll(" ", "-").toLowerCase()}`}
+            href={`/locations/${props.person.city.replaceAll(" ", "-").toLowerCase()}`}
           >
             {props.person.city}, {props.person.country}{" "}
           </Link>

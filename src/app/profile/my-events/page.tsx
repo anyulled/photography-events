@@ -1,10 +1,11 @@
 import { generatePersonData } from "@/components/data/generateData";
-import { Applicant } from "@/app/profile/my-events/applicant";
 import { faker } from "@faker-js/faker";
 import { Metadata } from "next";
 import { title } from "@/components/constants";
 import Link from "next/link";
 import getCountryFlag from "country-flag-icons/unicode";
+import { ApplicantProfile } from "@/lib/types";
+import { Applicant } from "@/app/profile/my-events/applicant";
 
 interface OrganizerEvent {
   id: string;
@@ -16,7 +17,7 @@ interface OrganizerEvent {
     city: string;
     country: string;
   };
-  applicants: Applicant[];
+  applicants: ApplicantProfile[];
 }
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 
 const username = faker.internet.userName();
 
-const generateRandomStatus = (): Applicant["status"] =>
+const generateRandomStatus = (): ApplicantProfile["status"] =>
   faker.helpers.arrayElement(["pending", "accepted", "rejected", "confirmed"]);
 
 const myEvents: OrganizerEvent[] = [
@@ -85,7 +86,7 @@ export default function MyEventsPage() {
           className="border-b-gray-200 border-t pt-2 pb-1"
         >
           <h2 className="text-2xl font-bold leading-8 text-teal-900">
-            <Link href={`/organizer/${username}/${event.name}`}>
+            <Link href={`/organizers/${username}/${event.name}`}>
               {event.name}
             </Link>
           </h2>

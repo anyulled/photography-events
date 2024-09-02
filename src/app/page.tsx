@@ -1,10 +1,11 @@
 "use client";
 import Banner from "@/components/ui/banner/Banner";
-import EventCalendar, { PersonEvent } from "@/components/ui/EventCalendar";
+import EventCalendar from "@/components/ui/EventCalendar";
 import { HeroComponent } from "@/app/heroComponent";
 import { UpdatesFeed } from "@/components/updatesFeed";
 import { generateUpdateFeed } from "@/components/data/generateData";
-import { faker } from "@faker-js/faker"; /* eslint-disable @next/next/no-img-element */
+import { faker } from "@faker-js/faker";
+import { PersonEvent } from "@/lib/types"; /* eslint-disable @next/next/no-img-element */
 
 export default function Home() {
   const events: Array<PersonEvent> = [

@@ -1,6 +1,6 @@
 import React from "react";
-import { Event } from "@/components/data/generateData";
 import Image from "next/image";
+import { Event } from "@/lib/types";
 
 interface Props {
   events: Readonly<Array<Event>>;
@@ -27,7 +27,7 @@ export default function EventList({ events }: Readonly<Props>) {
                 </div>
                 <h3 className="mt-6 text-sm text-orange-400">
                   <a
-                    href={`/organizer/${callout.organizer[0]}/${callout.slug}`}
+                    href={`/organizers/${callout.organizer[0]}/${callout.slug}`}
                   >
                     <span className="absolute inset-0" />
                     {callout.name}

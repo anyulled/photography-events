@@ -1,6 +1,7 @@
 import Link from "next/link";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
-import { Update } from "@/components/data/generateData"; /* eslint-disable @next/next/no-img-element */
+
+import { Update } from "@/lib/types"; /* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 

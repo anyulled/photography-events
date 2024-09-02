@@ -1,4 +1,3 @@
-import { UserProfile } from "@/components/data/generateData";
 import {
   BriefcaseIcon,
   CalendarIcon,
@@ -7,6 +6,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { faker } from "@faker-js/faker";
 import React from "react";
+import { UserProfile } from "@/lib/types";
 
 export function PersonPresentation(props: { person: UserProfile }) {
   return (
