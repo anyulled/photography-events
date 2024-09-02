@@ -24,14 +24,15 @@ export default function PhotoGallery(
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {props.photos.map((photo, index) => (
-              <div
+              <button
                 key={index + photo.length}
-                className={`cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300
+                className={`overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50
                   ${index % 5 === 0 ? "col-span-2 row-span-2" : ""}
                   ${index % 7 === 0 ? "col-span-2" : ""}
                   ${index % 11 === 0 ? "row-span-2" : ""}
                 `}
                 onClick={() => handlePhotoClick(index)}
+                aria-label={`View photo ${index + 1}`}
               >
                 <Image
                   src={photo}
@@ -40,7 +41,7 @@ export default function PhotoGallery(
                   height={600}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </button>
             ))}
           </div>
         </div>
