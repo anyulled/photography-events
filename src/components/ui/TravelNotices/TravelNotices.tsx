@@ -31,7 +31,9 @@ export default function TravelNotices(props: {
   name: string;
 }) {
   const [bookingOpen, setBookingOpen] = useState<boolean>(false);
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+    new Date(),
+  );
   const [fromDate, setFromDate] = useState<Date>(new Date());
   const [toDate, setToDate] = useState<Date>(new Date());
   const [selectedShootTypes, setSelectedShootTypes] = useState<Array<string>>(
@@ -56,12 +58,10 @@ export default function TravelNotices(props: {
         : [...prev, shootType],
     );
 
-  const handleBookingSubmit = (e: {
-    preventDefault: () => void;
-    target: { elements: any };
-  }) => {
+  const handleBookingSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Booking submitted:", e.target.elements);
+    const formElements = e.currentTarget.elements;
+    console.log("Booking submitted:", formElements);
     setBookingOpen(false);
   };
 
