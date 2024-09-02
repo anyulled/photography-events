@@ -31,7 +31,8 @@ export default function UpcomingEvents(props: { events: Array<ModelEvent> }) {
                   <div className="flex items-center text-gray-600 mb-2">
                     <Clock className="mr-2" />
                     <span>
-                      {event.startDate} - {event.endDate}
+                      {event.startDate.toLocaleDateString()} -{" "}
+                      {event.endDate.toLocaleDateString()}
                     </span>
                   </div>
                   <div className="flex items-center text-gray-600">

@@ -35,7 +35,7 @@ const statusOptions = [
   },
 ];
 
-export function Applicant(props: { person: ApplicantProfile }) {
+export function Applicant(props: { person: Readonly<ApplicantProfile> }) {
   const [selectedStatus, setSelectedStatus] = useState<string>(
     props.person.status,
   );

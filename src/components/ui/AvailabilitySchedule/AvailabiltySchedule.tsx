@@ -37,24 +37,22 @@ export default function AvailabilitySchedule(props: {
   };
 
   return (
-    <>
-      <section className="py-12 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-teal-800 mb-8">
-            Availability Schedule
-          </h2>
-          <div style={{ height: "500px" }}>
-            <Calendar
-              localizer={localizer}
-              events={calendarEvents}
-              startAccessor="start"
-              views={["month"]}
-              date={date}
-              onNavigate={handleCalendarNavigate}
-            />
-          </div>
+    <section className="py-12 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-teal-800 mb-8">
+          Availability Schedule
+        </h2>
+        <div style={{ height: "500px" }}>
+          <Calendar
+            localizer={localizer}
+            events={calendarEvents}
+            startAccessor="start"
+            views={["month"]}
+            date={date}
+            onNavigate={handleCalendarNavigate}
+          />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
