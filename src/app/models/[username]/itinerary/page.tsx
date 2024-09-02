@@ -2,7 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
-import { fetchModelData } from "@/services/personService";
+import {
+  fetchModelData,
+  ModelEvent,
+  TravelNotice,
+} from "@/services/personService";
 import { title } from "@/components/constants";
 
 type Props = {
@@ -39,12 +43,29 @@ export default async function ModelItinerary({ params }: Readonly<Props>) {
     return notFound();
   }
 
-  const combinedEvents = [
-    ...modelData.events.map((event) => ({ ...event, type: "event" })),
-    ...modelData.travelNotices.map((notice) => ({
-      ...notice,
-      type: "travel",
-    })),
+  interface CombinedModelEvent extends ModelEvent {
+    type: string;
+  }
+
+  interface CombinedTravelNotice extends TravelNotice {
+    type: string;
+  }
+
+  const combinedEvents: Array<CombinedModelEvent | CombinedTravelNotice> = [
+    ...modelData.events.map(
+      (event) =>
+        ({
+          ...event,
+          type: "event",
+        }) as CombinedModelEvent,
+    ),
+    ...modelData.travelNotices.map(
+      (notice) =>
+        ({
+          ...notice,
+          type: "travel",
+        }) as CombinedTravelNotice,
+    ),
   ].sort(
     (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime(),
   );
@@ -104,7 +125,7 @@ export default async function ModelItinerary({ params }: Readonly<Props>) {
               <div className="lg:space-y-4 space-y-0.5">
                 {events.map((event, index) => (
                   <div
-                    key={index + event.type}
+                    key={index + event.startDate.toLocaleTimeString()}
                     className="bg-white lg:rounded-lg lg:shadow-md lg:p-4 p-0.5"
                   >
                     {event.type === "event" ? (
