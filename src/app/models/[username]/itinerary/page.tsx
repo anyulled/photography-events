@@ -51,6 +51,11 @@ export default async function ModelItinerary({ params }: Readonly<Props>) {
     type: string;
   }
 
+  const isModelEvent = (
+    event: CombinedModelEvent | CombinedTravelNotice,
+  ): event is CombinedModelEvent =>
+    (event as CombinedModelEvent).title !== undefined;
+
   const combinedEvents: Array<CombinedModelEvent | CombinedTravelNotice> = [
     ...modelData.events.map(
       (event) =>
@@ -128,7 +133,7 @@ export default async function ModelItinerary({ params }: Readonly<Props>) {
                     key={index + event.startDate.toLocaleTimeString()}
                     className="bg-white lg:rounded-lg lg:shadow-md lg:p-4 p-0.5"
                   >
-                    {event.type === "event" ? (
+                    {isModelEvent(event) ? (
                       <>
                         <h4 className="font-semibold text-teal-700">
                           {event.title}
