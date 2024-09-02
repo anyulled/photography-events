@@ -58,7 +58,7 @@ export default function Example() {
         </p>
         <div id="participant-list" className="flex -space-x-1 overflow-hidden">
           {bannerInfo.models.map((model) => (
-            <Link key={model.id} href={`/model/${model.username}`}>
+            <Link key={model.id} href={`/models/${model.username}`}>
               <Image
                 alt={model.name}
                 src={model.profileUrl}
@@ -70,7 +70,7 @@ export default function Example() {
           ))}
         </div>
         <Link
-          href={`/organizer/${bannerInfo.organizer.username}/${bannerInfo.slug}`}
+          href={`/events/${bannerInfo.slug}`}
           className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
         >
           Register now <span aria-hidden="true">&rarr;</span>
