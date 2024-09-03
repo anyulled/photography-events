@@ -11,9 +11,6 @@ export const metadata: Metadata = {
 export default async function Component() {
   const allModels = await fetchPersonList();
 
-  console.clear();
-  console.log("### ALL MODELS ###", allModels);
-
   return (
     <main className="flex-1">
       <Hero
