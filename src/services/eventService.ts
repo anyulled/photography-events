@@ -100,3 +100,41 @@ export const getEvent = async (eventId: number): Promise<EventData> => {
     location: await getLocationInfo(eventId),
   } as EventData;
 };
+
+export const getEventFormData = async (
+  eventId: number,
+): Promise<{
+  endDate: Date;
+  description: string;
+  location: string;
+  startDate: Date;
+  images: string[];
+  models: Array<{ name: string; id: string; profileImage: string }>;
+  photographers: Array<{ name: string; id: string; profileImage: string }>;
+  organizers: Array<{ name: string; id: string; profileImage: string }>;
+  schedule: Array<{
+    title: string;
+    date: Date | undefined;
+    location: string;
+    price: string;
+  }>;
+  prices: Array<{
+    option: string;
+    price: string;
+    startDate: Date | undefined;
+    endDate: Date | undefined;
+  }>;
+  terms: string;
+}> => ({
+  description: "" + eventId,
+  location: "",
+  startDate: new Date(),
+  endDate: new Date(),
+  images: [],
+  models: [],
+  photographers: [],
+  organizers: [],
+  schedule: [],
+  prices: [],
+  terms: "",
+});
