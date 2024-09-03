@@ -13,7 +13,7 @@ export default async function Login() {
 
   return (
     <main className="flex flex-col items-center justify-between p-24">
-      {session && session.user && session.user.image && session?.user?.name && (
+      {session && session.user && session.user.image && session.user.name && (
         <>
           <h1>You are signed as {session.user.name}</h1>
           <img
