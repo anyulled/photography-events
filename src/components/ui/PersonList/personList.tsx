@@ -28,10 +28,10 @@ export function PersonList(props: {
   );
   const cities = Array.from(
     new Set(props.persons.map((value) => value.city)),
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
   const countries = Array.from(
     new Set(props.persons.map((value) => value.country)),
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGender, setSelectedGender] = useState("all");
