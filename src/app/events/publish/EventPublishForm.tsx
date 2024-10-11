@@ -235,7 +235,6 @@ export default function EventPublishForm(props: { eventData: any }) {
                 mode="single"
                 selected={startDate}
                 onSelect={setStartDate}
-                initialFocus
               />
             </PopoverContent>
           </Popover>
@@ -257,7 +256,6 @@ export default function EventPublishForm(props: { eventData: any }) {
                 mode="single"
                 selected={endDate}
                 onSelect={setEndDate}
-                initialFocus
               />
             </PopoverContent>
           </Popover>
@@ -384,7 +382,6 @@ export default function EventPublishForm(props: { eventData: any }) {
                   mode="single"
                   selected={day.date}
                   onSelect={(date) => updateScheduleDay(index, "date", date)}
-                  initialFocus
                 />
               </PopoverContent>
             </Popover>
@@ -593,7 +590,6 @@ export default function EventPublishForm(props: { eventData: any }) {
                   onSelect={(date) =>
                     updatePriceOption(index, "startDate", date)
                   }
-                  initialFocus
                 />
               </PopoverContent>
             </Popover>
@@ -620,7 +616,6 @@ export default function EventPublishForm(props: { eventData: any }) {
                   mode="single"
                   selected={price.endDate}
                   onSelect={(date) => updatePriceOption(index, "endDate", date)}
-                  initialFocus
                 />
               </PopoverContent>
             </Popover>
