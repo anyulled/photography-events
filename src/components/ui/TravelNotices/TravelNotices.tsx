@@ -157,7 +157,6 @@ export default function TravelNotices(props: {
                       before: fromDate,
                       after: toDate,
                     }}
-                    initialFocus
                   />
                 </PopoverContent>
               </Popover>
