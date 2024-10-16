@@ -14,13 +14,14 @@ export async function GET(request: Request) {
     users.rows.forEach(user => {
         const currentDate = faker.date.soon({days: 10});
         const country = faker.location.country();
-        pool.query("INSERT INTO availability (user_id, available_from, available_to, city, country, country_code) VALUES ($1, $2, $3, $4, $5, $6)", [
+        pool.query("INSERT INTO availability (user_id, available_from, available_to, city, country, country_code, base_fee) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
             user.id,
             currentDate,
             faker.date.soon({days: 3, refDate: currentDate}),
             faker.location.city(),
             country,
-            getAlpha2Code(country, "en")
+            getAlpha2Code(country, "en"),
+            100
         ]);
     });
 

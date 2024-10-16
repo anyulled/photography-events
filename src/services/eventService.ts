@@ -1,6 +1,7 @@
 import pool from "@/lib/db";
 
-import { EventData, EventDay, UserProfile } from "@/lib/types";
+import {EventData, EventDay, PersonEvent, UserProfile} from "@/lib/types";
+import {TravelNotice} from "@/services/personService";
 
 export const getLocationInfo = async (
   id: number,
@@ -138,3 +139,18 @@ export const getEventFormData = async (
   prices: [],
   terms: "",
 });
+
+export const getEventsHome = async (): Promise<Array<TravelNotice>> =>{
+    const availability = await pool.query<TravelNotice>(`select id,
+                                                                ''             as href,
+                                                                country,
+                                                                city,
+                                                                country_code   as countryCode,
+                                                                'available'    as title,
+                                                                available_from as startDate,
+                                                                available_to   as endDate,
+                                                                'model'
+                                                         from availability`);
+
+    return availability.rows;
+}
