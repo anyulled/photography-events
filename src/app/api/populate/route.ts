@@ -2,7 +2,7 @@ import {faker} from "@faker-js/faker";
 import pool from "@/lib/db"
 import {getAlpha2Code} from "i18n-iso-countries"
 
-export async function GET(request: Request) {
+export async function GET() {
     pool.query("BEGIN");
     pool.query("TRUNCATE TABLE event_registrations");
     pool.query("TRUNCATE TABLE event_participants");
