@@ -4,6 +4,12 @@ import {UpdatesFeed} from "@/components/updatesFeed";
 import AvailabilitySchedule
     from "@/components/ui/AvailabilitySchedule/AvailabiltySchedule";
 import {getEventsHome, getUpdateFeed} from "@/services/eventService";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Photography events - Home",
+    description: "Photography events nearby",
+};
 
 export default async function Home() {
     const events = await getEventsHome();
