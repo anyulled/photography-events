@@ -1,6 +1,6 @@
 import pool from "@/lib/db";
 
-import {EventData, EventDay, PersonEvent, UserProfile} from "@/lib/types";
+import {EventData, EventDay, UserProfile} from "@/lib/types";
 import {TravelNotice} from "@/services/personService";
 
 export const getLocationInfo = async (
