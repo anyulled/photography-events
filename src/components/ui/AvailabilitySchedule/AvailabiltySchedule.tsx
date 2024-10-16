@@ -1,8 +1,8 @@
 "use client";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import {Calendar, momentLocalizer} from "react-big-calendar";
 import moment from "moment/moment";
-import React, { useState } from "react";
-import { ModelEvent, TravelNotice } from "@/services/personService"; //import "react-big-calendar/lib/css/react-big-calendar.css";
+import React, {useState} from "react";
+import {ModelEvent, TravelNotice} from "@/services/personService"; //import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
@@ -12,6 +12,7 @@ export default function AvailabilitySchedule(props: {
   calendarEvents: Array<ModelEvent>;
   travelNotices: Array<TravelNotice>;
 }) {
+  console.log("props", props);
   const calendarEvents = [
     ...props.calendarEvents.map((event) => ({
       title: event.title,

@@ -76,6 +76,7 @@ export type Update = {
     name: string;
     instagram: string;
     role: string;
+    username: string;
   };
   type: string;
   imageUrl: string;

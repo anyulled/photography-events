@@ -1,7 +1,7 @@
 import Link from "next/link";
 import getUnicodeFlagIcon from "country-flag-icons/unicode";
 
-import { Update } from "@/lib/types"; /* eslint-disable @next/next/no-img-element */
+import {Update} from "@/lib/types"; /* eslint-disable @next/next/no-img-element */
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -26,22 +26,22 @@ export function UpdatesFeed(props: { updates: Array<Update> }) {
               <div className="min-w-0 flex-auto">
                 <p className="text-sm font-semibold leading-6 text-teal-900">
                   <Link
-                    href={`/${update.user.role.toLocaleLowerCase()}/${update.user.instagram}`}
+                      href={`/${update.user.role.toLocaleLowerCase()}/${update.user.username}`}
                   >
                     {update.user.name}
                   </Link>
                 </p>
                 <p className="mt-1 truncate text-xs leading-5 text-teal-400">
                   <Link
-                    href={`/${update.user.role.toLocaleLowerCase()}/${update.user.instagram}`}
+                      href={update.user.instagram}
                   >
-                    @{update.user.instagram}
+                      @{update.user.instagram.split("/")[3]}
                   </Link>
                 </p>
               </div>
             </div>
             <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-              <p className="text-sm leading-6 text-teal-700">{update.type}</p>
+                <p className="text-sm leading-6 text-teal-300">{update.type}</p>
               <p className="mt-1 text-xs leading-5 text-teal-400 truncate">
                 <span className={"truncate"}>
                   {getUnicodeFlagIcon(update.country)} {update.city},{" "}

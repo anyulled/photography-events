@@ -1,11 +1,10 @@
-import { faker } from "@faker-js/faker";
+import {faker} from "@faker-js/faker";
 import {
-  Availability,
-  Event,
-  EventDay,
-  PersonRole,
-  Update,
-  UserProfile,
+    Availability,
+    Event,
+    EventDay,
+    PersonRole,
+    UserProfile,
 } from "@/lib/types";
 
 export const generatePersonData = (
@@ -65,21 +64,4 @@ export const generateEvents = (num: number): Array<Event> =>
     imageSrc: faker.image.urlLoremFlickr({ category: "model" }),
     description: faker.lorem.sentence(),
   }));
-export const generateUpdateFeed = (num: number = 6): Array<Update> =>
-  Array.from({ length: num }, () => ({
-    user: {
-      role: faker.string.fromCharacters(["Model", "Photographer", "Organizer"]),
-      name: `${faker.person.firstName()} ${faker.person.lastName()}`,
-      instagram: faker.internet.userName(),
-    },
-    type: faker.string.fromCharacters([
-      "Model Availability",
-      "Photographer Availability",
-      "Organizer Event",
-    ]),
-    imageUrl: faker.image.avatar(),
-    city: faker.location.city(),
-    country: faker.location.country(),
-    dateEnd: faker.date.recent({ days: 2 }).toISOString().split("T")[0],
-    dateStart: faker.date.recent().toISOString().split("T")[0],
-  }));
+
