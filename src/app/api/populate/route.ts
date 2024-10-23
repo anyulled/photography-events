@@ -12,7 +12,7 @@ export async function GET() {
     pool.query("COMMIT");
     const users = await pool.query("select * from users");
     users.rows.forEach(user => {
-        const currentDate = faker.date.soon({days: 10});
+        const currentDate = faker.date.soon({days: 21});
         const country = faker.location.country();
         pool.query("INSERT INTO availability (user_id, available_from, available_to, city, country, country_code, base_fee) VALUES ($1, $2, $3, $4, $5, $6, $7)", [
             user.id,
@@ -20,7 +20,7 @@ export async function GET() {
             faker.date.soon({days: 3, refDate: currentDate}),
             faker.location.city(),
             country,
-            getAlpha2Code(country, "en"),
+            getAlpha2Code(country, "en") ?? "ES",
             100
         ]);
     });
