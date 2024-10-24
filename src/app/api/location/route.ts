@@ -1,6 +1,6 @@
-import {NextRequest} from "next/server";
+import {NextRequest, NextResponse} from "next/server";
 
-export function GET(request: NextRequest) {
+export const GET = (request: NextRequest): void | Response | Promise<void | Response> => {
     const mapsApiKey = process.env.GOOGLE_MAP_API_KEY;
     const latitude = request.nextUrl.searchParams.get("latitude");
     const longitude = request.nextUrl.searchParams.get("longitude");
@@ -12,5 +12,5 @@ export function GET(request: NextRequest) {
         .finally(() => console.log("done"));
 
     console.log("request", request);
-    return "Spain";
-}
+    return NextResponse.json({city:"Spain"});
+};
