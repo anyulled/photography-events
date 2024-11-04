@@ -26,7 +26,7 @@ export function UpdatesFeed(props: { updates: Array<Update> }) {
               <div className="min-w-0 flex-auto">
                 <p className="text-sm font-semibold leading-6 text-teal-900">
                   <Link
-                      href={`/${update.user.role.toLocaleLowerCase()}/${update.user.username}`}
+                      href={`/${update.user.role.toLocaleLowerCase()}s/${update.user.username}`}
                   >
                     {update.user.name}
                   </Link>
