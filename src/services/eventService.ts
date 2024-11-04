@@ -140,17 +140,24 @@ export const getEventFormData = async (
     terms: "",
 });
 
-export const getEventsHome = async (): Promise<Array<TravelNotice>> => {
-    const availability = await pool.query<TravelNotice>(`select id,
+export const getEventsHome = async (userLocation?: GeolocationPosition | undefined): Promise<Array<TravelNotice>> => {
+
+    if (userLocation) {
+        console.log("user location", userLocation);
+    }
+
+    const availability = await pool.query<TravelNotice>(`select a.id,
                                                                 ''             as href,
-                                                                country,
+                                                                a.country,
                                                                 city,
-                                                                country_code   as "countryCode",
+                                                                u.username,
+                                                                a.country_code as "countryCode",
                                                                 'available'    as title,
                                                                 available_from as "startDate",
                                                                 available_to   as "endDate",
                                                                 'model'
-                                                         from availability`);
+                                                         from availability a
+                                                                  inner join public.users u on u.id = a.user_id`);
 
     return availability.rows;
 }
