@@ -1,13 +1,14 @@
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { fetchModelData } from "@/services/personService";
+import {fetchModelData} from "@/services/personService";
 import PhotoGallery from "@/components/ui/PhotoGallery/PhotoGallery";
-import AvailabilitySchedule from "@/components/ui/AvailabilitySchedule/AvailabiltySchedule";
+import AvailabilitySchedule
+    from "@/components/ui/AvailabilitySchedule/AvailabiltySchedule";
 import HeroGradient from "@/components/ui/HeroGradient/HeroGradient";
 import UpcomingEvents from "@/components/ui/UpcomingEvents/UpcomingEvents";
 import TravelNotices from "@/components/ui/TravelNotices/TravelNotices";
-import { Metadata } from "next";
-import { title } from "@/components/constants";
-import { notFound } from "next/navigation";
+import {Metadata} from "next";
+import {title} from "@/components/constants";
+import {notFound} from "next/navigation";
 
 export type Props = {
   params: { username: string };
@@ -26,7 +27,7 @@ export default async function Component({
   params: { username: string };
 }>) {
   const modelData = await fetchModelData(params.username);
-
+    console.log(modelData)
   if (!modelData) {
     return notFound();
   }
