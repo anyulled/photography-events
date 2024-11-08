@@ -77,49 +77,50 @@ export async function fetchModelData(
 
         if (modelInfo.rows.length === 0) throw new Error("User not found");
 
-        const userLinks = await pool.query(
-            `
-                select title as "name", url
-                from user_links
-                where user_id = $1
-            `,
-            [modelInfo.rows[0].id],
-        );
-
-        const travelNotices = await pool.query(
-            ` select a.city,
-                     a.country,
-                     a.country_code   as "countryCode",
-                     a.available_from as "startDate",
-                     a.available_to as "endDate",
-                     u.username
-              from availability a
-                       inner join users u on u.id = a.user_id
-              where a.user_id = $1
-              order by "startDate"`,
-            [modelInfo.rows[0].id],
-        );
-
-        const events = await pool.query<EventResult>(
-            ` select e.title,
-                     e.start_time as "startDate",
-                     e.end_time   as "endDate",
-                     l.city,
-                     l.country,
-                     e.title,
-                     e.id         as id
-              from events e
-                       inner join locations l on l.id = e.location_id
-              where e.user_id = $1
-            `,
-            [modelInfo.rows[0].id],
-        );
+        const [userLinks, travelNotices, events] = await Promise.all([
+            pool.query(
+                `
+                    select title as "name", url
+                    from user_links
+                    where user_id = $1
+                `,
+                [modelInfo.rows[0].id],
+            ),
+            pool.query(
+                ` select a.city,
+                         a.country,
+                         a.country_code   as "countryCode",
+                         a.available_from as "startDate",
+                         a.available_to   as "endDate",
+                         u.username
+                  from availability a
+                           inner join users u on u.id = a.user_id
+                  where a.user_id = $1
+                  order by "startDate"`,
+                [modelInfo.rows[0].id],
+            ),
+            pool.query<EventResult>(
+                ` select e.title,
+                         e.start_time as "startDate",
+                         e.end_time   as "endDate",
+                         l.city,
+                         l.country,
+                         e.title,
+                         e.id         as id
+                  from events e
+                           inner join locations l on l.id = e.location_id
+                  where e.user_id = $1
+                `,
+                [modelInfo.rows[0].id],
+            ),
+        ]);
 
         const modelEvents: ModelEvent[] = events.rows.map(
             ({city, country, ...rest}) => ({
                 ...rest,
                 image: "",
                 location: {city: city, country: country},
+                username: modelInfo.rows[0].username,
             }),
         );
 
