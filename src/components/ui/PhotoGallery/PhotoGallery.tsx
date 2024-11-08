@@ -11,13 +11,14 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 
 export default function PhotoGallery(
-    props: Readonly<{
+    {photos, username}: Readonly<{
         photos: Array<string>;
+        username: string;
     }>,
 ) {
     const [photoIndex, setPhotoIndex] = useState<number>(0);
     const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
-    const convertedPhotos: Image[] = props.photos.map((src, index) => ({
+    const convertedPhotos: Image[] = photos.map((src, index) => ({
         src,
         alt: `photo ${index}`,
         width: 1024,
@@ -45,13 +46,36 @@ export default function PhotoGallery(
                     </div>
                 </div>
             </section>
+            {/* Instagram embed */}
+
+            <blockquote className="instagram-media"
+                        data-instgrm-permalink={`https://www.instagram.com/${username}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+                        data-instgrm-version="14"
+            >
+                <div><a
+                    href={`https://www.instagram.com/${username}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+                    target="_blank">
+                    <div
+                    >View
+                        this profile on Instagram
+                    </div>
+                </a><p
+                >
+                    <a href={`https://www.instagram.com/${username}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+                       target="_blank">Delaia González</a> (@<a
+                    href={`https://www.instagram.com/${username}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+
+                    target="_blank">{username}</a>) • Instagram photos and
+                    videos</p></div>
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
             {/* Lightbox */}
             {lightboxOpen && (
                 <Lightbox
                     open={lightboxOpen}
                     close={() => setLightboxOpen(false)}
                     plugins={[Fullscreen, Zoom, Captions]}
-                    slides={props.photos.map((src) => ({src}))}
+                    slides={photos.map((src) => ({src}))}
                     index={photoIndex}
                 />
             )}

@@ -9,6 +9,7 @@ import TravelNotices from "@/components/ui/TravelNotices/TravelNotices";
 import {Metadata} from "next";
 import {title} from "@/components/constants";
 import {notFound} from "next/navigation";
+import { Suspense } from "react";
 
 export type Props = {
   params: { username: string };
@@ -44,7 +45,15 @@ export default async function Component({
       />
 
       {/* Photo Gallery */}
-      <PhotoGallery photos={modelData.photos} />
+        <Suspense fallback={
+          <div className="flex flex-col items-center justify-center h-screen">
+            <div className="text-center text-3xl font-bold">
+              Loading...
+            </div>
+          </div>
+        }>
+      <PhotoGallery photos={modelData.photos} username={modelData.username}/>
+        </Suspense>
 
       {/* Upcoming Events with Gradient */}
       {modelData.events.length > 0 && (

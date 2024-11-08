@@ -1,0 +1,6 @@
+### GET request to example server
+GET http://localhost:3000/api/populate
+
+###
+
+GET http://localhost:3000/api/location?latitude=41.4978993&longitude=2.0365428
