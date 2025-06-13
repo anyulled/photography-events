@@ -1,4 +1,4 @@
-import {NextRequest, NextResponse} from "next/server";
+import {NextRequest} from "next/server";
 
 export const GET = (request: NextRequest): void | Response | Promise<void | Response> => {
     const mapsApiKey = process.env.GOOGLE_MAP_API_KEY;
@@ -12,5 +12,12 @@ export const GET = (request: NextRequest): void | Response | Promise<void | Resp
         .finally(() => console.log("done"));
 
     console.log("request", request);
-    return NextResponse.json({city:"Spain"});
+   return new Response('Spain', {
+        status: 200,
+        headers: {
+            'Cache-Control': 'public, s-maxage=3600',
+            'CDN-Cache-Control': 'public, s-maxage=3600',
+            'Vercel-CDN-Cache-Control': 'public, s-maxage=3600',
+        },
+    });
 };
